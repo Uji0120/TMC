@@ -3,4 +3,14 @@ class Post < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_one_attached :image
+
+  has_many :like, dependent: :destroy
+  has_many :bookmark, dependent: :destroy
+  has_many :comment, dependent: :destroy
+
+  belongs_to :user
+  belongs_to :genre
+
 end
