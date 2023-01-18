@@ -69,6 +69,7 @@ Rails.application.routes.draw do
 scope module: :user do
   root 'homes#top'
   get "home/about" => "homes#about", as: "about"
+  post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
 
   resources :posts, only: [:new, :index, :show, :edit, :update, :destroy]
 

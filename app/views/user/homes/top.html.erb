@@ -15,6 +15,9 @@
             グルメ,バイクのカスタマイズの情報を投稿したりして情報をシェアしましょう！<br>
           </p>
         </div>
+        <%#= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
+        # 以下を追加
+        <%= link_to 'ゲストログイン（閲覧用）', posts_path, method: :get %>
       </div>
     </div>
   </div>
