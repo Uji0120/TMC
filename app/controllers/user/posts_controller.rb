@@ -42,6 +42,15 @@ class User::PostsController < ApplicationController
     end
   end
   
+  def search
+    if params[:keyword].present?
+      @posts = Posts.where('caption LIKE ?', "%#{params[:keyword]}%")
+      @keyword = params[:keyword]
+    else
+      @posts = Post.all
+    end
+  end
+  
   def destroy
     @posts = Post.find(params[:id])
     @posts.destroy

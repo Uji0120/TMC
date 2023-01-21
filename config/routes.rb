@@ -71,7 +71,13 @@ scope module: :user do
   get "home/about" => "homes#about", as: "about"
   post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
 
-  resources :posts, only: [:new, :index, :show, :edit, :update, :destroy]
+  resources :posts do #only: [:new, :index, :show, :edit, :update, :destroy]
+    resources :introductions, only: :create
+    collection do
+      get 'search'
+    end
+  end
+  
 
   resources :likes, only: [:create, :destroy]
 
