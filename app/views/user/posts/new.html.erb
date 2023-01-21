@@ -1,2 +1,24 @@
-<h1>User::Posts#new</h1>
-<p>Find me in app/views/user/posts/new.html.erb</p>
+<h1>新規投稿</h1>
+
+<%= form_with model: @user, url: new_post_path do |f| %>
+    <div class="image">
+        <%= f.label :image, "写真" %>
+        <%= f.file_field :image, accept: "image/*"%>
+    </div>
+
+    <div class="タイトル">
+        <%= f.label :title, "タイトル" %>
+        <%= f.text_field :title %>
+    </div>
+
+    <div class="記事">
+        <%= f.label :introduction, "記事" %>
+        <%= f.text_area :introduction %>
+    </div>
+    
+    <%= f.submit "投稿する" %>
+    
+<% end %>
+
+    
+
