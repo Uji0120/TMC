@@ -1,2 +1,21 @@
-<h1>User::Posts#show</h1>
-<p>Find me in app/views/user/posts/show.html.erb</p>
+<h1>投稿詳細</h1>
+
+<tr class="post_image">
+    <td>
+        <%= image_tag @post.image, size: "100×100"%>
+    </td>
+</tr>
+
+<tr class="title">
+    <td>
+        <%= @post.title %>
+    </td>
+</tr>
+
+<tr class="introduction">
+    <td>
+        <%= @post.introduction %>
+    </td>
+</tr>
+
+
