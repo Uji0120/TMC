@@ -12,13 +12,14 @@ class Post < ApplicationRecord
   has_many :post_tags, dependent: :destroy
   has_many :tags, through: :post_tags, dependent: :destroy
   
-  def bookmarked_by?(user)
-    bookmark.where(user_id: user).exists?
-  end
-  
   has_many :comment, dependent: :destroy
-
   belongs_to :user
   #belongs_to :genre
 
+  
+  def bookmarked_by?(user)
+    bookmark.exists?(user_id: user.id)
+  end
+  
+  
 end

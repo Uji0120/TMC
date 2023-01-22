@@ -77,11 +77,9 @@ scope module: :user do
       get 'search'
     end
     resource :bookmarks, only: [:create, :destroy]
+    resource :likes, only: [:create, :destroy]
   end
   
-
-  resources :likes, only: [:create, :destroy]
-
   #resources :bookmarks, only: [:index, :create, :destroy]
 
   resources :comments, only: [:new, :edit, :create, :update, :destroy]
