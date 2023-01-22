@@ -9,3 +9,9 @@ Admin.create!(
   email: 'admin@motocrew.com',
   password: '123456@m',
   )
+
+Tag.create([
+    { name: 'ツーリングスポット' },
+    { name: 'グルメ' },
+    { name: 'カスタマイズ'},
+    ])

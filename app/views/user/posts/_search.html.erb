@@ -1,4 +1,21 @@
-<%= form_with url: search_post_path, local: true, method: :get do |form| %>
-    <%= form.text_field :keyword %>
-    <%= form.submit "検索" %>
-<% end %>
+
+<div class="field">
+  <%= form_with model: @user, url: search_posts_path, local: true, method: :get do |f| %>
+    <%= f.label :keyword, "キーワード入力" %>
+    <%= f.text_field :keyword %>
+    
+<!--div class="check_box">
+  <%#= form_for.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+    <div class='form-check'>
+   　 <#%= tag.label do %>
+    　  <#%= tag.check_box %>
+    　  <#%= tag.text %>
+    　<%# end %>
+    </div>
+  <%# end %>
+</div-->
+
+    <%= f.submit "検索" %>
+  <% end %>
+</div>
+

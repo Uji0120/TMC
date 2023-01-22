@@ -76,12 +76,13 @@ scope module: :user do
     collection do
       get 'search'
     end
+    resource :bookmarks, only: [:create, :destroy]
   end
   
 
   resources :likes, only: [:create, :destroy]
 
-  resources :bookmarks, only: [:index, :create, :destroy]
+  #resources :bookmarks, only: [:index, :create, :destroy]
 
   resources :comments, only: [:new, :edit, :create, :update, :destroy]
 

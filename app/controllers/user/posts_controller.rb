@@ -16,8 +16,10 @@ class User::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    #@posts = Post.all
     @user = current_user
+    @tags = Tag.all
+    @posts = params[:title].present? ? Tag.find(params[:title]).posts : Post.all
   end
 
   def show
@@ -60,7 +62,7 @@ class User::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :introdu, :image)
+    params.require(:post).permit(:title, :introduction, :image, tag_ids: [])
   end
 
   
