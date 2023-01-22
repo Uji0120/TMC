@@ -1,7 +1,17 @@
 class User::CommentsController < ApplicationController
-  def new
-  end
+ 
+ def create
+    post = Poste.find(params[:post_image_id])
+    comment = current_user.post_comments.new(post_comment_params)
+    comment.post_id = post.id
+    comment.save
+    redirect_to post_image_path(post_image)
+ end
 
-  def edit
+  private
+
+  def post_comment_params
+    params.require(:post_comment).permit(:comment)
   end
+ 
 end

@@ -1,2 +1,10 @@
-<h1>User::Users#show</h1>
+<h1>ユーザー詳細</h1>
+
+    <% if @bookmark_list.present? %>
+      <% @bookmark_list.each do |item| %>
+        <%= item.name %>
+        <%= image_tag item.image%>
+    　<% end %>
+    <% end %>
+    
 <p>Find me in app/views/user/users/show.html.erb</p>

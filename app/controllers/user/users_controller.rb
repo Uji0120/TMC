@@ -1,6 +1,11 @@
 class User::UsersController < ApplicationController
   def show
-    @user = current_user
+    @user = User.find(params[:id])
+    @post = @user.post
+    
+    bookmarks = Bookmark.where(user_id: current_user.id).pluck(:post_id)
+    @bookmark_list = Post.find(bookmarks)
+    
   end
   
   def index

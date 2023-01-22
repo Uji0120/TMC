@@ -78,15 +78,18 @@ scope module: :user do
     end
     resource :bookmarks, only: [:create, :destroy]
     resource :likes, only: [:create, :destroy]
+    resources :comments, only: [:create]
   end
   
   #resources :bookmarks, only: [:index, :create, :destroy]
 
-  resources :comments, only: [:new, :edit, :create, :update, :destroy]
+  #resources :comments, only: [:new, :edit, :create, :update, :destroy]
 
   resources :chats, only: [:new, :index, :show, :create]
 
-  resources :users, only: [:index, :show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update] do
+    get :bookmarks, on: :collection 
+  end
   get 'users/unsubscribe/:id' => 'users#subscribe', as: 'unsubscribe'
   get 'users/withdrawal/:id' => 'users#withdrawal', as: 'withdrawal'
 
