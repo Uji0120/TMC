@@ -1,5 +1,9 @@
 <h1>ユーザー詳細</h1>
 
+<% if current_user != @user %>
+  <%= link_to 'chatを始める', chat_path(@user.id)%>
+<% end %>
+
     <% if @bookmark_list.present? %>
       <% @bookmark_list.each do |item| %>
         <%= item.name %>

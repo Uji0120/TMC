@@ -85,7 +85,9 @@ scope module: :user do
 
   #resources :comments, only: [:new, :edit, :create, :update, :destroy]
 
-  resources :chats, only: [:new, :index, :show, :create]
+  #resources :chats, only: [:new, :index, :show, :create]
+  get 'chat/:id' => 'chats#show', as: 'chat'
+  resources :chats, only: [:create]
 
   resources :users, only: [:index, :show, :edit, :update] do
     get :bookmarks, on: :collection 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_22_134005) do
+ActiveRecord::Schema.define(version: 2023_01_23_115855) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -73,7 +73,8 @@ ActiveRecord::Schema.define(version: 2023_01_22_134005) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.integer "user_id", null: false
-    t.text "chat", null: false
+    t.integer "room_id", null: false
+    t.string "message", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_chats_on_email", unique: true
@@ -148,8 +149,20 @@ ActiveRecord::Schema.define(version: 2023_01_22_134005) do
     t.index ["reset_password_token"], name: "index_posts_on_reset_password_token", unique: true
   end
 
+  create_table "rooms", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_rooms", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "room_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

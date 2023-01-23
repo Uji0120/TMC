@@ -5,5 +5,6 @@ class Chat < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :user
+  belongs_to :room
 
 end
