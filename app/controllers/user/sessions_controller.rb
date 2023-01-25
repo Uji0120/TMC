@@ -1,4 +1,5 @@
-class Users::SessionsController < Devise::SessionsController
+class User::SessionsController < Devise::SessionsController
+  before_action :user_state, only: [:create]
   
   def guest_sign_in
     user = User.guest
@@ -6,7 +7,7 @@ class Users::SessionsController < Devise::SessionsController
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
   end
   
-  proteced
+  private
   
   def user_state
     @user = User.find_by(email: params[:user][:email])

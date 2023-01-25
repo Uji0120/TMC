@@ -69,7 +69,7 @@ Rails.application.routes.draw do
 scope module: :user do
   root 'homes#top'
   get "home/about" => "homes#about", as: "about"
-  post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+  post 'user/guest_sign_in', to: 'user/sessions#guest_sign_in'
 
   resources :posts do #only: [:new, :index, :show, :edit, :update, :destroy]
     resources :introductions, only: :create
@@ -82,9 +82,7 @@ scope module: :user do
   end
   
   #resources :bookmarks, only: [:index, :create, :destroy]
-
   #resources :comments, only: [:new, :edit, :create, :update, :destroy]
-
   #resources :chats, only: [:new, :index, :show, :create]
   get 'chat/:id' => 'chats#show', as: 'chat'
   resources :chats, only: [:create]
