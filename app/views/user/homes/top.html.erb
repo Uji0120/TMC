@@ -1,23 +1,22 @@
-<!--h1>User::Homes#top</h1>
+<!--h1>User::Homes#top col-11 col-sm-10 col-lg-8 col-xl-6   </h1>
 <p>Find me in app/views/user/homes/top.html.erb</p-->
 
 <div class="container">
   <div class="row">
     <div class="col">
-      <div class="text">
-        <%= image_tag "motocrew_top.jpg", class: "bd-placeholder-img bd-placeholder-img-lg shadow-lg"%>
-        <div class="card-img-overlay d-flex">
-          <p class="card-text align-self-center mx-auto font-weifh-bold h5 text-primary">
-            ようこそ<span>Moto Crew【モトクルー】</span>へ！<br>
+      <div class="mx-auto d-flex">
+        <%= image_tag "motocrew_top.jpg" %>
+        <div class="card-img-overlay">
+          <p class="card-text text-center">
+            ようこそ<storong>Moto Crew【モトクルー】</storong>へ！<br>
             このサイトはこれからバイクに乗る人たち,<br>
             いまバイクに乗っている人たちが集まるコミュニティサイトです！<br>
-            ツーリングスポットを検索したり,自分が行ったツーリング先や<br>
-            グルメ,バイクのカスタマイズの情報を投稿したりして情報をシェアしましょう！<br>
+            ツーリングスポットを検索したり,自分の行ったツーリング先や<br>
+            グルメ,バイクのカスタマイズの情報を投稿したりして<br>
+            情報をシェアしましょう！<br>
+            <%= link_to 'ゲストログイン GO!', posts_path, method: :get, class: 'btn btn-dark' %>
           </p>
         </div>
-        <%#= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
-        # 以下を追加
-        <%= link_to 'ゲストログイン（閲覧用）', posts_path, method: :get %>
       </div>
     </div>
   </div>
