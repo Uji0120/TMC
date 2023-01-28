@@ -6,6 +6,7 @@ class User::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+    #@tags = Tag.all
     if @post.save
       redirect_to post_path(@post.id), {success: "投稿しました。"}
     else
@@ -63,7 +64,7 @@ class User::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :introduction, :image, tag_ids: [])
+    params.require(:post).permit(:title, :introduction, :image, :tag_ids, :tag_name) 
   end
 
   

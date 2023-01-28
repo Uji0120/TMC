@@ -15,7 +15,7 @@ scope module: :user do
   post '/home/guest_sign_in', to: 'homes#guest_sign_in'
 
   resources :posts do #only: [:new, :index, :show, :edit, :update, :destroy]
-    resources :introductions, only: :create
+    resources :introductions, only: [:create]
     collection do
       get 'search'
     end
