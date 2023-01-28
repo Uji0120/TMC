@@ -23,10 +23,9 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
-
-                <p>ようこそ、<%= current_customer.first_name %>さん！</p>
+                <p>ようこそ、<%= current_user.first_name %>さん！</p>
                 <li>
-                  <%= link_to "マイページ", user_path(current_customer), class: "btn btn-outline-dark ml-3" %>
+                  <%= link_to "マイページ", user_path(current_user), class: "btn btn-outline-dark ml-3" %>
                 </li>
                 <li>
                   <%= link_to "投稿一覧", posts_path, class: "btn btn-outline-dark ml-3" %>
@@ -44,9 +43,6 @@
                 <li>
                   <%= link_to "会員一覧", admin_users_path, class: 'btn btn-outline-dark ml-3' %>
                 </li>
-                <!--li>
-                  <%#= link_to "注文履歴一覧", admin_root_path, class: 'btn btn-outline-dark ml-3' %>
-                </li-->
                 <li>
                   <%= link_to "ジャンル一覧", admin_genres_path, class: 'btn btn-outline-dark ml-3' %>
                 </li>
