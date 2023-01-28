@@ -39,8 +39,8 @@ class DeviseCreateChats < ActiveRecord::Migration[6.1]
       t.timestamps null: false
     end
 
-    add_index :chats, :email,                unique: true
-    add_index :chats, :reset_password_token, unique: true
+    # add_index :chats, :email,                unique: true
+    # add_index :chats, :reset_password_token, unique: true
     # add_index :chats, :confirmation_token,   unique: true
     # add_index :chats, :unlock_token,         unique: true
   end

@@ -1,7 +1,8 @@
 class User::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @post = @user.post
+    @posts = @user.post
+    @post = Post.new
     
     bookmarks = Bookmark.where(user_id: current_user.id).pluck(:post_id)
     @bookmark_list = Post.find(bookmarks)
@@ -39,8 +40,8 @@ class User::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:las_name, :first_name, :last_name_kana, :first_name_kana,
-    :introduction, :is_deleted)
+    params.require(:user).permit(:last_name, :first_name, :last_name_kana, :first_name_kana,
+    :introduction, :image, :is_deleted)
   end
 
 end

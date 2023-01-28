@@ -38,8 +38,8 @@ class DeviseCreateBookmarks < ActiveRecord::Migration[6.1]
       t.timestamps null: false
     end
 
-    add_index :bookmarks, :email,                unique: true
-    add_index :bookmarks, :reset_password_token, unique: true
+    # add_index :bookmarks, :email,                unique: true
+    # add_index :bookmarks, :reset_password_token, unique: true
     # add_index :bookmarks, :confirmation_token,   unique: true
     # add_index :bookmarks, :unlock_token,         unique: true
   end

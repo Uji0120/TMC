@@ -14,7 +14,7 @@ class Post < ApplicationRecord
   
   has_many :comment, dependent: :destroy
   belongs_to :user
-  #belongs_to :genre
+  belongs_to :genre
 
   
   def bookmarked_by?(user)

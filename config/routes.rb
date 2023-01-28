@@ -41,11 +41,12 @@ end
 namespace :admin do
 
 root 'homes#top'
+
 resources :posts, only:[:new, :index, :show, :edit, :create, :update, :destroy]
 
 resources :comments, only: [:edit, :create, :destroy]
 
-resources :genres, only: [:new, :index, :show, :create, :update, :destroy]
+resources :genres, only: [:edit, :create, :index, :update, :destroy]
 
 resources :users, only: [:index, :show, :edit, :update]
 

@@ -62,8 +62,6 @@ ActiveRecord::Schema.define(version: 2023_01_23_115855) do
     t.integer "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_bookmarks_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_bookmarks_on_reset_password_token", unique: true
   end
 
   create_table "chats", force: :cascade do |t|
@@ -77,8 +75,6 @@ ActiveRecord::Schema.define(version: 2023_01_23_115855) do
     t.string "message", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_chats_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_chats_on_reset_password_token", unique: true
   end
 
   create_table "comments", force: :cascade do |t|
@@ -92,8 +88,6 @@ ActiveRecord::Schema.define(version: 2023_01_23_115855) do
     t.text "comment", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_comments_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_comments_on_reset_password_token", unique: true
   end
 
   create_table "genres", force: :cascade do |t|
@@ -105,8 +99,6 @@ ActiveRecord::Schema.define(version: 2023_01_23_115855) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_genres_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_genres_on_reset_password_token", unique: true
   end
 
   create_table "likes", force: :cascade do |t|
@@ -119,8 +111,6 @@ ActiveRecord::Schema.define(version: 2023_01_23_115855) do
     t.integer "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_likes_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_likes_on_reset_password_token", unique: true
   end
 
   create_table "post_tags", force: :cascade do |t|
@@ -145,8 +135,6 @@ ActiveRecord::Schema.define(version: 2023_01_23_115855) do
     t.text "comment", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_posts_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_posts_on_reset_password_token", unique: true
   end
 
   create_table "rooms", force: :cascade do |t|
