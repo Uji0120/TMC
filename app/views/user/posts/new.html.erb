@@ -2,7 +2,7 @@
 
 <%= render "user/posts/search" %>
 
-<%= form_with model: @post, url: new_post_path do |f| %>
+<%= form_with model: @post, url: posts_path do |f| %>
     <div class="check_box">
       <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
         <div class='form-check'>

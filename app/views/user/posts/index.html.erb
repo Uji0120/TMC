@@ -47,6 +47,9 @@
                             <%= tag.name %>
                         <% end %>
                     </td>
+                    <td>
+                        <p><%= link_to "#{post.post_comments.count} コメント", post_path(post_.id) %></p>
+                    </td>
                 </tr>
                 <% end %>
             </tbody>

@@ -5,8 +5,8 @@ class User::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.user_id = current_user.id
-    #@tags = Tag.all
+    @post.user = current_user
+    @tags = Tag.all
     if @post.save
       redirect_to post_path(@post.id), {success: "投稿しました。"}
     else
@@ -26,7 +26,7 @@ class User::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @user = @post.user
-    @post_comment = PostComment.new
+    @comment = PostComment.new
   end
 
   def edit
