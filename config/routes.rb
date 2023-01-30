@@ -42,10 +42,9 @@ namespace :admin do
 
 root 'homes#top'
 
-resources :posts, only:[:new, :index, :show, :edit, :create, :update, :destroy]
-
-resources :comments, only: [:edit, :create, :destroy]
-
+resources :posts, only:[:new, :index, :show, :edit, :create, :update, :destroy] do
+  resources :comments, only: [:edit, :create, :destroy]
+end
 resources :genres, only: [:edit, :create, :index, :update, :destroy]
 
 resources :users, only: [:index, :show, :edit, :update]

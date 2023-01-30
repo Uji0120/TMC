@@ -3,27 +3,23 @@
 <%= render "user/posts/search" %>
 
 <%= form_with model: @post, url: posts_path do |f| %>
-    <div class="check_box">
-      <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
-        <div class='form-check'>
-            <%= tag.label do %>
-    　          <%= tag.check_box %>
-    　          <%= tag.text %>
-    　      <% end %>
+    <div class="genre">
+        <%= f.label :genre_id, "ジャンル" %>
+        <div class="col-sm-2 mt-3">
+         <%= f.collection_select :genre_id, Genre.all, :id, :name, {prompt: "選択してください"}, {class: "form-control"} %>
         </div>
-      <% end %>
     </div>
-    <div class="image">
+    <div class="image mt-3">
         <%= f.label :image, "写真" %>
         <%= f.file_field :image, accept: "image/*"%>
     </div>
 
-    <div class="タイトル">
+    <div class="タイトル mt-3">
         <%= f.label :title, "タイトル" %>
         <%= f.text_field :title %>
     </div>
 
-    <div class="記事">
+    <div class="記事 mt-3">
         <%= f.label :introduction, "記事" %>
         <%= f.text_area :introduction %>
     </div>

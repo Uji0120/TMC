@@ -1,12 +1,13 @@
 class User::PostsController < ApplicationController
   def new
     @post = Post.new
+    @genres = Genre.all
   end
 
   def create
     @post = Post.new(post_params)
     @post.user = current_user
-    @tags = Tag.all
+    #@tags = Tag.all
     if @post.save
       redirect_to post_path(@post.id), {success: "投稿しました。"}
     else
@@ -19,7 +20,8 @@ class User::PostsController < ApplicationController
   def index
     #@posts = Post.all
     @user = current_user
-    @tags = Tag.all
+    @genres = Genre.all
+    #@tags = Tag.all
     @posts = params[:title].present? ? Tag.find(params[:title]).posts : Post.all
   end
 
@@ -64,7 +66,7 @@ class User::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :introduction, :image, :tag_ids, :tag_name) 
+    params.require(:post).permit(:title, :introduction, :image, :genre_id) 
   end
 
   

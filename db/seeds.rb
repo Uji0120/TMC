@@ -10,8 +10,8 @@ Admin.create!(
   password: '123456@m',
   )
 
-Tag.create([
-    { name: 'ツーリングスポット' },
-    { name: 'グルメ' },
-    { name: 'カスタマイズ'},
-    ])
+# Tag.create([
+#     { name: 'ツーリングスポット' },
+#     { name: 'グルメ' },
+#     { name: 'カスタマイズ'},
+#     ])

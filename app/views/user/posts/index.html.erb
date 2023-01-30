@@ -1,6 +1,8 @@
 <h1>投稿一覧</h1>
 <div class="container">
     <div class="row">
+        <%= render "user/posts/search" %>
+        <%= render "user/posts/genre.search", genres: @genres %>
         <table>
             <thead>
                 <tr>
@@ -10,20 +12,6 @@
                     <th></th>
                 </tr>
             </thead>
-            
-            <%= render "user/posts/search" %>
-            
-            <%= form_tag posts_path, method: :get, class: 'boards__searchForm' do %>
-              <% @tags.each do |tag| %>
-                <div class="tag-box">
-                  <%= link_to tag.name, posts_path(name: tag.id) %>
-                </div>
-              <% end %>
-            <div class="tag-box">
-                <%= link_to "全ての投稿", posts_path %>
-             </div>
-            <% end %>
-            
             <tbody>
                 <%= @posts.each do |post| %>
                 <tr>
@@ -43,9 +31,9 @@
                         <% end %>
                     </td>
                     <td>
-                        <% post.tags.each do |tag| %>
-                            <%= tag.name %>
-                        <% end %>
+                        <%# post.genre_id.each do |tag| %>
+                        <%= post.genre_id %>
+                        <%# end %>
                     </td>
                     <td>
                         <p><%= link_to "#{post.post_comments.count} コメント", post_path(post_.id) %></p>
