@@ -1,2 +1,42 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
+<div class="container px-5 px-sm-0">
+        <div class="row">
+      <!--<div class="col-md-4">-->
+        <%#= render 'user/users/user', user: @user, post: @post %>
+      <!--</div>-->
+      <div class="col-md-7 offset-md-1">
+          <h2>投稿</h2>
+          <table class="table table-hover table-inverse">
+            <thead>
+              <tr>
+                <th></th>
+                <th>タイトル</th>
+                <th>投稿内容</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @posts.each do |post| %>
+              <tr>
+                <td>
+                  <%= image_tag @user.get_image(100,100) %><br>
+                  <%= link_to @user.name, user_path(@user.id) %>
+                </td>
+                <td>
+                   <p><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></p>
+                </td>
+                <td>
+                  <%= link_to posts.title, post_path(post.id) %>
+                </td>
+                <td>
+                  <%= posts.introduction %>
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+            <%= f.radio_button :is_deleted, true, class: "form-check-input" %>
+             <%= f.label :is_deleted, "ユーザー削除", value: true, class: "form-check-label" %>
+          </table>
+        </div>
+    </div>
+  </div>
+</main>
