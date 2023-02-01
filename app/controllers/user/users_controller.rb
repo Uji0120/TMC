@@ -10,7 +10,8 @@ class User::UsersController < ApplicationController
   end
   
   def index
-    @user = User.all
+    @user = current_user
+    @users = User.all
   end
 
   def edit

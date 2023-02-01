@@ -1,16 +1,4 @@
-<% if current_user != @user %>
-  <%= link_to 'chatを始める', chat_path(@user.id)%>
-<% end %>
-
-    <% if @bookmark_list.present? %>
-      <% @bookmark_list.each do |item| %>
-        <%= item.name %>
-        <%= image_tag item.image%>
-    　<% end %>
-    <% end %>
-
 <main>
-
   <% if flash[:notice] %>
     <div class="flash">
       <%= flash[:notice] %>
@@ -19,11 +7,21 @@
 
   <div class="container px-5 px-sm-0">
     <div class="row">
-
       <div class="col-md-4">
+        
+        <% if current_user != @user %>
+          <%= link_to 'chatを始める', chat_path(@user.id)%>
+        <% end %>
+
+        <% if @bookmark_list.present? %>
+          <% @bookmark_list.each do |post| %>
+            <%= post.title %>
+            <%= post.introduction %>
+    　    <% end %>
+        <% end %>
+        
         <%= render 'user/users/user', user: @user, post: @post %>
       </div>
-
       <div class="col-md-7 offset-md-1">
           <h2>投稿</h2>
           <table class="table table-hover table-inverse">
