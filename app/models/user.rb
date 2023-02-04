@@ -11,8 +11,12 @@ class User < ApplicationRecord
   has_many :comment, dependent: :destroy
   #has_many :likes, dependent: :destroy
   
-  has_many :user_rooms
-  has_many :chats
+  has_many :rooms, through: :user_rooms
+  has_many :user_rooms, dependent: :destroy
+  has_many :chats, dependent: :destroy
+    
+  # has_many :user_rooms
+  # has_many :chats
   
   # def get_user_image(width, height)
     # unless user_image.attached?

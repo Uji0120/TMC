@@ -35,7 +35,7 @@ class DeviseCreatePosts < ActiveRecord::Migration[6.1]
       t.integer :genre_id, null: false
       t.string :title, null: false
       t.text :introduction, null: false
-      t.text :comment, null: false
+      t.text :comment, null: true
       
 
 

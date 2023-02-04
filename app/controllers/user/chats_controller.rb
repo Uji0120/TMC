@@ -1,12 +1,4 @@
 class User::ChatsController < ApplicationController
-  #def new
-  #end
-
-  #def index
-  #end
-
-  #def show
-  #end
   
   def show
     @user = User.find(params[:id])
@@ -24,6 +16,7 @@ class User::ChatsController < ApplicationController
     @chats = @room.chats
     @chat = Chat.new(room_id: @room.id)
   end
+  
   def create
     @chat = current_user.chats.new(chat_params)
     @chat.save

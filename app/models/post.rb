@@ -1,8 +1,8 @@
 class Post < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  # devise :database_authenticatable, :registerable,
+  #       :recoverable, :rememberable, :validatable
 
   has_one_attached :image
 
@@ -19,7 +19,7 @@ class Post < ApplicationRecord
 
   
   def bookmarked_by?(user)
-    bookmarks.where(user_id: user).exists?
+    bookmark.where(user_id: user).exists?
   end
   
   

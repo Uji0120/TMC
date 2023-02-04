@@ -132,7 +132,7 @@ ActiveRecord::Schema.define(version: 2023_01_23_115855) do
     t.integer "genre_id", null: false
     t.string "title", null: false
     t.text "introduction", null: false
-    t.text "comment", null: false
+    t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

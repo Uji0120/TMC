@@ -7,8 +7,8 @@ class User::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user
-    #@tags = Tag.all
-    if @post.save
+    @genres = Genre.all
+    if @post.save!
       redirect_to post_path(@post.id), {success: "投稿しました。"}
     else
       @posts = Post.all
@@ -28,7 +28,7 @@ class User::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @user = @post.user
-    @comment = PostComment.new
+    @comment = Comment.new
   end
 
   def edit
@@ -66,7 +66,7 @@ class User::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :introduction, :image, :genre_id) 
+    params.require(:post).permit(:title, :introduction, :image, :genre_id, :password, :password_confirmation,) 
   end
 
   

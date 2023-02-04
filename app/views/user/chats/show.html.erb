@@ -1,4 +1,4 @@
-<h1>User::Chats#show</h1>
+<h1>チャット</h1>
 
 <%= form_with model: @chat do |f| %>
     <%= f.text_field :message %>
@@ -15,7 +15,7 @@
     <tbody>
         <% @chats.each do |chat| %>
             <tr>
-                <td><%= chat.user.name %></td>
+                <td><%= chat.user.first_name %></td>
                 <td><%= chat.message %></td>
             </tr>
         <% end %>
