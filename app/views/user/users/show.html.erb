@@ -47,7 +47,7 @@
                   <%= link_to @user.last_name, user_path(@user.id) %>
                 </td>
                 <td>
-                   <p><%= link_to "#{post.comment.count} コメント", post_path(post.id) %></p>
+                   <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
                 </td>
                 <td>
                   <%= link_to post.title, posts_path(post.id) %>

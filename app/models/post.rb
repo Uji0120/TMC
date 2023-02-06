@@ -6,21 +6,28 @@ class Post < ApplicationRecord
 
   has_one_attached :image
 
-  has_many :like, dependent: :destroy
-  has_many :bookmark, dependent: :destroy
+  # has_many :like, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
   
   has_many :post_tags, dependent: :destroy
   has_many :tags, :through => :post_tags
   accepts_nested_attributes_for :post_tags, allow_destroy: true
   
-  has_many :comment, dependent: :destroy
+  has_many :comments, dependent: :destroy
   belongs_to :user
   belongs_to :genre
 
   
   def bookmarked_by?(user)
-    bookmark.where(user_id: user).exists?
+    bookmarks.where(user_id: user.id).exists?
   end
   
+  def self.search(search) #self.はUser.を意味する
+     if search
+       where(['posttitle LIKE ?', "%#{search}%"]) #検索とuseanameの部分一致を表示。
+     else
+       all #全て表示させる
+     end
+  end
   
 end

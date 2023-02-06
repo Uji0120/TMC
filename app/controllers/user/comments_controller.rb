@@ -2,10 +2,15 @@ class User::CommentsController < ApplicationController
  
  def create
     post = Post.find(params[:post_id])
-    comment = current_user.comment.new(post_comment_params)
+    comment = current_user.comments.new(post_comment_params)
     comment.post_id = post.id
     comment.save
     redirect_to posts_path(post)
+ end
+ 
+ def destroy
+    Comment.find(params[:id]).destroy
+    redirect_to posts_path(params[:post_id])
  end
 
   private

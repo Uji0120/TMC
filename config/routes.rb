@@ -21,7 +21,7 @@ scope module: :user do
     end
     resource :bookmarks, only: [:create, :destroy]
     resource :likes, only: [:create, :destroy]
-    resources :comments, only: [:create]
+    resources :comments, only: [:create, :destroy]
   end
   
   #resources :bookmarks, only: [:index, :create, :destroy]

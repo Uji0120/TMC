@@ -1,16 +1,16 @@
 class User::BookmarksController < ApplicationController
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
   
   def index
     @bookmarks = Bookmark.where(user_id: current_user.id)
   end
   
   def create
-    @post = Post.find(params[:post_id])
+    post = Post.find(params[:post_id])
     #bookmark = @post.bookmarks.new(user_id: current_user.id)
-    bookmark = current_user.bookmarks.find_by(post_id: #post.id)
+    bookmark = current_user.bookmarks.new(post_id: post.id)
     bookmark.save
-    redirect_to post_path(post_id)
+    redirect_to posts_path(post)
       #redirect_to posts_path
     #if bookmark.save
       #redirect_to posts_path
@@ -20,11 +20,11 @@ class User::BookmarksController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:post_id])
+    post = Post.find(params[:post_id])
     #bookmark = @post.bookmarks.find_by(user_id: current_user.id)
-    bookmark = current_user.bookmarks.find_by(post_id: #post.id)
+    bookmark = current_user.bookmarks.find_by(post_id: post.id)
     bookmark.destroy
-    redirect_to post_path(post_id)
+    redirect_to posts_path(post)
     #if bookmark.present?
         #bookmark.destroy
         #redirect_to posts_path

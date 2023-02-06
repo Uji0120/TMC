@@ -43,7 +43,6 @@ class User::PostsController < ApplicationController
     if @Post.update(post_params)
       redirect_to post_path(@post.id), flash: {success: "投稿内容を更新しました。" }
     else
-      #@book = Book.find(params[:id])
       render :edit
     end
   end
@@ -52,8 +51,14 @@ class User::PostsController < ApplicationController
     if params[:keyword].present?
       @posts = Posts.where('caption LIKE ?', "%#{params[:keyword]}%")
       @keyword = params[:keyword]
+      @genres = Genre.all
+      @user = current_user
+      redirect_to posts_path
     else
       @posts = Post.all
+      @genres = Genre.all
+      @user = current_user
+      render :index
     end
   end
   
