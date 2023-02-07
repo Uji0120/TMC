@@ -1,2 +1,54 @@
-<h1>Admin::Users#edit</h1>
-<p>Find me in app/views/admin/users/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    
+    <%= form_with model: @user, url: edit_admin_user_path do |f| %>
+
+      <h2>ユーザー情報編集</h2>
+      <div class="row">
+            <div class="col-md">
+                <form>
+                    <div class="form-group row">
+                      <%= f.label :image, "アイコン画像", class: "col-sm-4 col-form-label" %>
+                      <div class="col-sm-8">
+                        <div class="custom-file">
+                       <%= f.file_field :image, accept: "image/*" %>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-table">
+                      <th><%= f.label :名前 %></th><br>
+                      <td><%= f.label :（性） %></td><br>
+                      <td><%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "col-sm-7" %></td><br>
+                      <td><%= f.label :（名） %></td><br>
+                      <td><%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" , class: "col-sm-7" %></td><br>
+                    </div>
+                    <div class="form-table">
+                      <th><%= f.label :フリガナ %></th><br>
+                      <td><%= f.label :（セイ） %></td><br>
+                      <td><%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana", class: "col-sm-7" %></td><br>
+                      <td><%= f.label :（メイ） %></td><br>
+                      <td><%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana", class: "col-sm-7" %></td><br>
+                    </div>
+                    <div class="form-table">
+                      <%= f.label :メールアドレス %><br>
+                      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-sm-7" %>
+                    </div>
+                    <div class="form-table">
+                      <%= f.label :自己紹介文 %><br />
+                      <%= f.text_field :introduction, autocomplete: "introduction", class: "col-sm-7" %>
+                    </div>
+                    <div class="actions">
+                       <%= f.submit 'ユーザー情報更新', class: "btn btn-secondary text-white mt-3" %>
+                    </div>
+                    <div class="actions">
+                       <%#= f.submit :is_delete, 'ユーザー退会', value: true, class: "btn btn-danger text-white mt-3" %>
+                    </div>
+                    <%#= render "user/shared/links" %>
+                </form>
+            </div>
+        </div>
+        <% end %>
+    </div>
+  </div>
+</div>

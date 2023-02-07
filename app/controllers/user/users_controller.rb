@@ -1,4 +1,5 @@
 class User::UsersController < ApplicationController
+  
   def show
     @user = User.find(params[:id])
     @posts = @user.post
@@ -33,7 +34,7 @@ class User::UsersController < ApplicationController
 
   def withdrawal
     @user = User.find(params[:id])
-    @user.update(is_deleted: true)
+    @user.update(is_delete: true)
     reset_session
     redirect_to root_path
   end
@@ -42,7 +43,7 @@ class User::UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:last_name, :first_name, :last_name_kana, :first_name_kana,
-    :introduction, :image, :is_deleted)
+    :introduction, :image, :is_delete)
   end
 
 end

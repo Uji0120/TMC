@@ -33,8 +33,8 @@ scope module: :user do
   resources :users, only: [:index, :show, :edit, :update] do
     get :bookmarks, on: :collection 
   end
-  get 'users/unsubscribe/:id' => 'users#subscribe', as: 'unsubscribe'
-  get 'users/withdrawal/:id' => 'users#withdrawal', as: 'withdrawal'
+  get 'users/unsubscribe/:id' => 'users#unsubscribe', as: 'unsubscribe'
+  patch 'users/withdrawal/:id' => 'users#withdrawal', as: 'withdrawal'
 
 end
 
@@ -48,6 +48,7 @@ end
 resources :genres, only: [:edit, :create, :index, :update, :destroy]
 
 resources :users, only: [:index, :show, :edit, :update]
+
 
 end
 

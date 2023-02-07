@@ -9,7 +9,7 @@
     <%= f.text_area :introduction %></br>
     <%= f.submit '更新完了', class: "btn btn-success text-white" %>
     
-    <%= link_to '投稿詳細へ', book_path(@book.id) %> 
-    <%= link_to '戻る', books_path %>
+    <%= link_to '投稿詳細へ', post_path(@book.id) %> 
+    <%= link_to '戻る', posts_path %>
     
 <% end %>
