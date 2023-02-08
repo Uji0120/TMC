@@ -3,7 +3,7 @@
 <%= form_with model: @chat do |f| %>
     <%= f.text_field :message %>
     <%= f.hidden_field :room_id %>
-    <%= f.submit %>
+    <%= f.submit '送信する' %>
 <% end %>
 <table>
     <thead>

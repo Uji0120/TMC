@@ -9,18 +9,21 @@
     <div class="row">
       <div class="col-md-4">
         
+        <%= render 'user/users/user', user: @user, post: @post %>
+        
         <% if current_user != @user %>
           <%= link_to 'チャットを始める', chat_path(@user.id)%>
         <% end %>
         
+      <div class="col">
+        <h4>いいねした投稿</h4>
         <% if @bookmark_list.present? %>
           <% @bookmark_list.each do |post| %>
-            <%= post.title %>
+            <%= link_to post.title, post_path(post.id) %>
             <%= post.introduction %>
     　    <% end %>
         <% end %>
-        
-        <%= render 'user/users/user', user: @user, post: @post %>
+      </div>
         
       </div>
       <div class="col-md-7 offset-md-1">
@@ -46,9 +49,9 @@
                   <% end %>
                   <%= link_to @user.last_name, user_path(@user.id) %>
                 </td>
-                <td>
-                   <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
-                </td>
+                <!--<td>-->
+                <!--   <p><%#= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>-->
+                <!--</td>-->
                 <td>
                   <%= link_to post.title, posts_path(post.id) %>
                 </td>

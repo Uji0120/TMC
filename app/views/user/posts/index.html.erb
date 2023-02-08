@@ -8,16 +8,20 @@
                 <tr>
                     <th></th>
                     <th>タイトル</th>
-                    <th>内容</th>
                     <th></th>
+                    <th>内容</th>
+                    <th>ジャンル</th>
+                    <th></th>
+                    <th>いいね</th>
+                    <th>コメント</th>
                 </tr>
             </thead>
             <tbody>
                 <% @posts.each do |post| %>
                 <tr>
                     <td>
-                        <% if @user.image.attached? %>
-                            <%= image_tag @user.image, size: "200x200" %>
+                        <% if post.image.attached? %>
+                            <%= image_tag post.image, size: "200x200" %>
                         <% else %>
                             <%= image_tag 'no_image', size: "200x200" %>
                          <% end %>
@@ -29,18 +33,23 @@
                         <%= link_to post.title, post_path(post.id) %>
                         <%# end %>
                     </td>
+                    <td></td>
                     <td>
                         <%#= truncate(post.description, length: 10) do %>
                         <%= post.introduction %>
                         <%# end %>
                     </td>
                     <td>
-                        <%# post.genre_id.each do |tag| %>
-                        <%= post.genre_id %>
+                        <%# post.genre_id.each do |genre| %>
+                        <%= post.genre.name %>
                         <%# end %>
                     </td>
+                    <td></td>
                     <td>
-                        <p><%= link_to "#{post.comments.count} コメント", posts_path(post.id) %></p>
+                        <%= post.bookmarks.count %>いいね
+                    </td>
+                    <td>
+                        <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
                     </td>
                 </tr>
                 <% end %>

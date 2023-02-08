@@ -14,12 +14,31 @@
     <%= f.label :introduction, "記事" %>
     <%= f.text_area :introduction %></br>
     
+    <p>
     <%= f.submit '更新完了', class: "btn btn-success text-white" %>
+    </p>
     
-    <%= link_to '投稿削除',admin_post_path(@post.id), method: :delete, class: "btn btn-danger text-white" %>
+    <p>コメント</p>
+    <% @post.comments.each do |comment| %>
+        <p><%#= image_tag post_comment.user.get_profile_image(100,100) %></p>
+        <%= comment.user.last_name %>
+        <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+        <%# if comment.user == current_user %>
+      <%= link_to "削除", admin_post_comment_path(@post.id), method: :delete, class: "btn btn-danger text-white" %>
+    <%# end %>
+    <% end %>
     
-    <%= link_to '投稿詳細へ', admin_post_path(@post.id) %> 
-    
-    <%= link_to '戻る', posts_path %>
+    <p>
+        <%= link_to '投稿削除',admin_post_path(@post.id), method: :delete, class: "btn btn-danger text-white" %>
+    </p>
+    <p>
+        <%#= link_to '投稿詳細へ', admin_post_path(@post.id) %> 
+    </p>
+    <p>
+        <%= link_to '戻る', admin_posts_path %>
+    </p>
     
 <% end %>
+    
+    
+    

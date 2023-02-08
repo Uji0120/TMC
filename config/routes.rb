@@ -33,6 +33,8 @@ scope module: :user do
   resources :users, only: [:index, :show, :edit, :update] do
     get :bookmarks, on: :collection 
   end
+  patch 'users/:id/edit' , to: 'users#update'
+  
   get 'users/unsubscribe/:id' => 'users#unsubscribe', as: 'unsubscribe'
   patch 'users/withdrawal/:id' => 'users#withdrawal', as: 'withdrawal'
 
@@ -42,12 +44,13 @@ namespace :admin do
 
 root 'homes#top'
 
-resources :posts, only:[:new, :index, :show, :edit, :create, :update, :destroy] do
+resources :posts, only:[:index, :edit, :create, :update, :destroy] do
   resources :comments, only: [:edit, :create, :destroy]
 end
 resources :genres, only: [:edit, :create, :index, :update, :destroy]
 
 resources :users, only: [:index, :show, :edit, :update]
+patch 'admin/users/:id/edit' ,to: 'admin#users#update'
 
 
 end
