@@ -10,7 +10,7 @@ class User::CommentsController < ApplicationController
  
  def destroy
     Comment.find(params[:id]).destroy
-    redirect_to admin_posts_path
+    redirect_to posts_path
  end
 
   private
