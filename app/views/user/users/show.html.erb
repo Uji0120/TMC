@@ -5,16 +5,16 @@
     </div>
   <% end %>
 
-  <div class="container px-5 px-sm-0">
+  <div class="container">
     <div class="row">
       <div class="col-md-4">
-        
+
         <%= render 'user/users/user', user: @user, post: @post %>
-        
+
         <% if current_user != @user %>
           <%= link_to 'チャットを始める', chat_path(@user.id)%>
         <% end %>
-        
+
       <div class="col">
         <h4>いいねした投稿</h4>
         <% if @bookmark_list.present? %>
@@ -24,7 +24,7 @@
     　    <% end %>
         <% end %>
       </div>
-        
+
       </div>
       <div class="col-md-7 offset-md-1">
           <h2>投稿</h2>
