@@ -18,7 +18,7 @@
     <%= f.submit '更新完了', class: "btn btn-success text-white" %>
     </p>
 
-    <p>コメント</p>
+    <p>コメントを追加する…</p>
     <% @post.comments.each do |comment| %>
         <p><%#= image_tag post_comment.user.get_profile_image(100,100) %></p>
         <%= comment.user.last_name %>
